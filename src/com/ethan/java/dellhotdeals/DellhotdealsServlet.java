@@ -1,4 +1,4 @@
-package com.ethan.java;
+package com.ethan.java.dellhotdeals;
 
 import java.io.IOException;
 import java.util.logging.Logger;
