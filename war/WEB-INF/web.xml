@@ -6,13 +6,36 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet>
 		<servlet-name>Dellhotdeals</servlet-name>
-		<servlet-class>com.ethan.java.DellhotdealsServlet</servlet-class>
+		<servlet-class>com.ethan.java.dellhotdeals.DellhotdealsServlet</servlet-class>
+		<init-param>
+			<description>User agent used in polling</description>
+			<param-name>retriever.userAgent</param-name>
+			<param-value>Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36</param-value>
+		</init-param>
+		<init-param>
+			<description>Noitification sender name</description>
+			<param-name>notifier.senderName</param-name>
+			<param-value>R3000 Dell Coupon Monitor</param-value>
+		</init-param>
+		<init-param>
+			<description>Noitification sender email address</description>
+			<param-name>notifier.senderEmail</param-name>
+			<param-value>waldenlaker@gmail.com</param-value>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Dellhotdeals</servlet-name>
-		<url-pattern>/dellhotdeals</url-pattern>
+		<url-pattern>/cron/poller</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	<security-constraint>
+		<web-resource-collection>
+			<url-pattern>/cron/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
 </web-app>

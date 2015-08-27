@@ -10,6 +10,7 @@ public class DealPageEntity {
 
 	private String uri = null;
 	private List<String> content = null;
+	private List<String> prices  = null;
 	//private String content = null;
 	private String contentType = null;
 	private Date timestamp = null;
@@ -22,7 +23,7 @@ public class DealPageEntity {
 	 * @param contentType The MIME type of the object
 	 * @param date The date the content was retrieved
 	 */
-	public DealPageEntity(String uri, List<String> content, String contentType,
+	public DealPageEntity(String uri, List<String> content, List<String> prices, String contentType,
 			Date timestamp, int statusCode) {
 		
 		if(uri == null || content == null || timestamp == null) {
@@ -30,6 +31,7 @@ public class DealPageEntity {
 		}
 		this.uri = uri;
 		this.content = content;
+		this.prices = prices;
 		this.contentType = contentType;
 		this.timestamp = timestamp;
 		this.statusCode = statusCode;
@@ -71,6 +73,24 @@ public class DealPageEntity {
 	 */
 	public void setContent(List<String> content) {
 		this.content = content;
+	}
+	
+	/**
+	 * Get the prices
+	 * 
+	 * @return the prices
+	 */
+	public List<String> getPrices() {
+		return prices;
+	}
+	
+	/**
+	 * Set the prices
+	 * 
+	 * @param content the content to set
+	 */
+	public void setPrices(List<String> prices) {
+		this.prices = prices;
 	}
 	
 	/**
